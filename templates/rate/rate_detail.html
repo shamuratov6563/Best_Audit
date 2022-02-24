@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{rate.title}}</title>
+</head>
+<body>
+    <button style="background-color:#000"><a style="color:#fff; text-decoration:none" href="{% url 'home' %}">Orqaga</a></button>
+    <h2>{{rate.title}}</h2>
+    <ul>
+        <li class="fc__li">{{rate.first}}</li>
+        <li class="fc__li">{{rate.second}}</li>
+        <li class="fc__li">{{rate.third}}</li>
+    </ul>
+    <button style="background-color:#000"><a style="color:#fff; text-decoration:none" href="{% url 'rate_edit' rate.pk %}">O`zgartirish</a></button>
+    <button style="background-color:#000"><a style="color:#fff; text-decoration:none"  href="{% url 'rate_new' %}"> Yangi Rate</a></button>
+</body>
+</html>
+

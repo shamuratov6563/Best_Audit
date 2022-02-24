@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {%block title %}Home Page{% endblock %}
+</head>
+<body>
+    <h1 style="text-align:center">Hi everyone</h1>
+    {{a}}
+    <br>
+    <br>
+    <br>
+    {% for rate in rate_list %}
+    {{rate.title}}
+    <ul>
+        <li> {{rate.first}}</li>
+        <li>{{rate.second}}</li>
+        <li> {{rate.third}}</li>
+    </ul>
+    {{rate.prize}}
+    {% endfor %}
+
+        {% for video in videos %}
+            <video width="500" height="500" controls >
+                <source src="{{video.video.url}}" type="video/mp4">
+            </video>
+            <b>{{video.title}}</b>
+            <h2>{{video.caption}}</h2>
+            <h2>{{video.date_uploaded}}</h2>
+        {% endfor %}
+    <a href="{}"></a>
+    <form method="POST">
+        {% csrf_token %}
+        <label>
+            <input type="text" name="name" placeholder="Your Name...">
+        </label>
+        <label>
+            <input type="tel" name="number" placeholder="+998" >
+        </label>
+        <button type="submit">Send Message</button>
+    </form>
+</body>
+</html>
