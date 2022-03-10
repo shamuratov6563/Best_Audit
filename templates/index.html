@@ -8,12 +8,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/aos.min.css' %}">
-    <link rel="stylesheet" href="{% static 'font/Gilroy/stylesheet.css' %}"/>
+    <link rel="stylesheet" href="{% static 'fonts/Gilroy/stylesheet.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <title>BEST AUDIT</title>
+    <style>
+      @media (max-width: 575px) {
+        .change__lang {
+          margin-right: 15px;
+        }
+      }
+
+      .lang__style_ru, .lang__style_uz, .lang__style {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .lang__style_ru {
+        color: #005dc7 ;
+      }
+
+      .lang__style_uz {
+        color: #009100;
+      }
+      .tell__us, .serv__name{
+
+      font-weight:500;
+      }
+      * {
+          margin: 0;
+          padding: 0;
+          font-family: "Gilroy" !important;
+        }
+      .sn__number, .call__now, .service__title h2, .definition__title, .pos__title, .cause__title, .d_end__title{
+      font-weight: 600;
+      }
+
+    </style>
   </head>
   <body onscroll="myscroll()" >
-    <div id="snow"></div>
     <div class="site__wrapper">
    <section class="fixed__box fixed-top" id="top__menu">
     <header class="header">
@@ -29,30 +61,22 @@
             </div>
             <div class="dollar">
               <div class="dollar__text">1 USD = {{a}}</div>
-              <img src="{% static 'images/top.svg' %}" class="dollar__status" alt="top" />
             </div>
             <div class="dollar">
               <div class="dollar__text">1 EUR = {{e}}</div>
-              <img src="{% static 'images/top.svg' %}" class="dollar__status" alt="top" />
             </div>
             <div class="dollar">
               <div class="dollar__text">1 RUB = {{r}}</div>
-              <img src="{% static 'images/bottom.svg' %}" class="dollar__status" alt="top" />
             </div>
           </div>
           <div class="change__lang">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="site__lang" src="{% static 'images/lang-uzm.png' %}" alt="">
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li class="lang__mt"><a class="dropdown-item" href="#"><img class="site__lang" src="{% static 'images/lang-russian.png' %}" alt=""></a></li>
-              </ul>
-            </div>
+           <a href="/ru" class="lang__style_ru">Ру</a>
+               <span class="lang__style">/</span>
+           <a href="/uz" class="lang__style_uz">Uz</a>
           </div>
-          <a href="tel:998946092277" class="tell__usbtn">
+          <a href="tel:998995252277" class="tell__usbtn">
             <img src="{% static 'images/phone.svg' %}" class="phone__link" alt="phone" />
-            <div class="tell__us">( 94 ) 609-22-77</div>
+            <div class="tell__us">( 99 ) 525-22-77</div>
           </a>
           <div></div>
           <button
@@ -167,7 +191,7 @@
             </div>
           </div>
           <div class="forms">
-            <div class="main__title"  data-aos="fade-left" data-aos-duration="300" > <span id="hero" ></span> </div>
+            <div class="main__title"  data-aos="fade-left" data-aos-duration="300" ><span id="hero">{% trans 'БУХГАЛТЕРСКИЕ УСЛУГИ В ТАШКЕНТЕ' %}</span> </div>
             <div class="main__subtitle" data-aos="fade-left" data-aos-duration="500"
             >
             {% trans 'Воспользуйтесь нашими качественными бухгалтерскими услугами!' %}
@@ -206,7 +230,7 @@
                 </div>
                 <div class="sms__number">
                   <div class="sn__title">{% trans 'Мы будем звонят вам' %}</div>
-                  <div class="sn__number">+998 (94) 609-22-77</div>
+                  <div class="sn__number">+998 (99) 525-22-77</div>
                 </div>
               </div>
               <div class="sms__border"></div>
@@ -214,10 +238,12 @@
               <div class="cn__stitle">
                 {% trans 'Заполните форму и Мы проконсильтурует Вас' %}
               </div>
-              <form class="send__sms">
+              <form class="send__sms" method="POST">
+                {% csrf_token %}
                 <div class="form-floating">
                   <input
                     type="text"
+                    name="name"
                     class="form-control"
                     id="floatingInput"
                     placeholder="name@example.com"
@@ -229,6 +255,7 @@
                 <div class="form-floating">
                   <input
                     type="number"
+                    name="number"
                     class="form-control"
                     id="floatingPassword"
                     placeholder="Password"
@@ -247,7 +274,7 @@
     <section class="why__uc" id="superiority">
       <div class="container">
         <div class="service__title">
-          <h2 data-aos="fade-right" data-aos-delay="100">{% trans 'наши' %} <span style="color: #005dc7;">{% trans 'услуги' %}</span></h2>
+          <h2 data-aos="fade-right" data-aos-delay="100">{% trans 'наши' %} <span style="color: #005dc7; ">{% trans 'услуги' %}</span></h2>
         <div class="bott__line"></div>
         <div class="service__subtitle" data-aos="fade-right" data-aos-delay="300">{% trans 'Вы можете развивать свой бизнес и экономить много ресурсов, используя наши следующие услуги' %}</div>
       </div>
@@ -270,7 +297,8 @@
           </div>
           <div class="serv__text">
             <div class="serv__name">{% trans 'Подготовка отчетности' %}</div>
-            <di class="serv__text">{% trans 'Подготовка и своевременная подача всех видов налоговых отчётов' %}</div>
+            <div class="serv__text">{% trans 'Подготовка и своевременная подача всех видов налоговых отчётов' %}</div>
+            </div>
             </div>
             <div class="service__card" data-aos="fade-right"   data-aos-delay="500">
           <div class="serv__logo">
@@ -305,7 +333,8 @@
           </div>
           <div class="serv__text">
             <div class="serv__name">{% trans 'Ведение бухгалтерского учета' %}</div>
-            <di class="serv__text">{% trans 'Бухгалтерский учет и контроль движения денежных средств' %}</div>
+            <div class="serv__text">{% trans 'Бухгалтерский учет и контроль движения денежных средств' %}</div>
+            </div>
             </div>
           </div>
           <div class="serv__centimg">
@@ -323,7 +352,8 @@
            </div>
            <div class="serv__text">
              <div class="serv__name"> {% trans 'Кадровый учет' %}</div>
-             <di class="serv__text">{% trans 'Регистрация трудовых договоров и работа со всеми кадровыми документами' %}</div>
+             <div class="serv__text">{% trans 'Регистрация трудовых договоров и работа со всеми кадровыми документами' %}</div>
+           </div>
            </div>
           <div class="service__card" data-aos="fade-left"   data-aos-delay="500">
            <div class="serv__logo">
@@ -336,13 +366,15 @@
               <path d="M382.5 141.3C369.3 146.5 357.1 151.4 355.5 152.2C350.7 154.8 344.3 161.4 341.3 167.2L338.5 172.5L338 231.5L337.5 290.5H306.5C276 290.5 275.5 290.5 275.9 288.5C276.1 287.4 276.2 283.3 276.3 279.5C276.4 267.7 271.1 259.1 260.7 254.1C254.6 251.2 254.3 251.1 233 250.6C221.2 250.3 205.4 250.1 198 250H184.4L173.5 237.8C167.4 231.2 160.6 223.5 158.3 220.8L154 215.8V201.1C154 184.7 153 179.6 147.7 169.5C138.3 151.9 117.7 141.7 98.3003 144.9C77.7003 148.4 61.9003 163.7 57.9003 183.8C57.0003 188.7 56.8003 211.1 57.3003 281.3C57.8003 369 57.9003 372.8 59.9003 380.5C62.9003 392.2 69.1003 403.8 76.7003 412L83.2003 419H70.3003C61.8003 419 55.7003 418.5 52.4003 417.5C43.6003 414.9 36.1003 406.7 34.6003 398C34.2003 396.1 31.3003 353.3 28.0003 303C24.7003 252.7 21.6003 210.5 21.0003 209.2C20.5003 208 18.5003 206.3 16.6003 205.4C12.5003 203.4 8.50032 204.4 5.70032 208.2C3.80032 210.8 3.80032 211.4 9.90032 304.2C13.3003 355.5 16.5003 399.7 17.0003 402.3C20.3003 418.5 34.3003 432.4 50.8003 435.9C53.9003 436.5 66.1003 437 80.0003 437H104V510V583H58.0003C18.8003 583 11.5003 583.2 9.00032 584.5C3.50032 587.4 2.30032 593.9 6.50032 598.4L8.90032 601H454H899.1L901.5 598.4C905.7 593.9 904.5 587.4 899 584.5C896.5 583.2 889.2 583 850 583H804V510V437H828C841.9 437 854.1 436.5 857.2 435.9C873.5 432.4 887.4 418.8 890.9 402.9C891.4 400.5 894.6 356.3 898 304.7C904.2 211.4 904.2 210.8 902.3 208.2C899.5 204.4 895.5 203.4 891.4 205.4C889.5 206.3 887.5 208 887 209.2C886.4 210.5 883.3 252.7 880 303C876.7 353.3 873.8 396.1 873.4 398C871.9 406.7 864.4 414.9 855.6 417.5C852.3 418.5 846.2 419 837.7 419H824.8L831.3 412C838.9 403.8 845.1 392.2 848.1 380.5C850.1 372.8 850.2 369 850.7 281.3C851.2 211.1 851 188.7 850.1 183.8C846.1 163.7 830.3 148.4 809.7 144.9C790.4 141.7 769.6 152 760.3 169.5C755 179.6 754 184.7 754 201.1V215.8L749.8 220.8C747.4 223.5 740.6 231.2 734.5 237.8L723.6 250H710C702.6 250.1 686.8 250.3 675 250.6C653.7 251.1 653.4 251.2 647.3 254.1C636.9 259.1 631.6 267.7 631.7 279.5C631.8 283.3 631.9 287.4 632.1 288.5C632.5 290.5 632 290.5 605 290.5H577.5L577 232C576.5 174.7 576.5 173.4 574.3 168.8C571.9 163.5 565.3 156 560.5 153C556.4 150.5 508.5 132 506.1 132C501.7 132 499.3 135.8 491 156.4C486.4 167.7 482.5 176.8 482.3 176.6C482.1 176.4 480.9 170.1 479.6 162.5C476.4 143.8 477.3 144.5 457.4 144.5H441.8L439.5 147.2C437.9 149 436.8 152.2 436 157.2C433 175.9 432.7 177.3 432 175.9C431.5 175.1 427.7 165.9 423.5 155.5C419.3 145 415.1 135.7 414.2 134.8C410.5 131 407.6 131.6 382.5 141.3ZM425.6 209L448 264.4V277.6V290.9L423.3 290.7L398.5 290.5L398 262.7L397.5 234.8L394.7 232.4C391 229.3 386.9 229.3 383.1 232.6L380 235.2L379.8 262.8L379.5 290.5L367.8 290.6H356V234.7C356 173.1 355.9 174.4 362.2 169.7C365.1 167.6 400.7 153.1 402.3 153.4C402.8 153.5 413.2 178.5 425.6 209ZM537.5 162.9C552.7 168.8 554.4 169.8 557 175C559 178.8 559 180.7 558.8 234.7L558.5 290.5H547H535.5L535 262.7L534.5 234.8L531.7 232.4C530.1 231.1 527.6 230 526 230C524.4 230 521.9 231.1 520.3 232.4L517.5 234.8L517 262.7L516.5 290.5H491.5H466.5L466.2 278.5L465.9 266.4L487.6 213C499.5 183.6 509.8 158 510.6 156.2L511.9 153L518.2 155.4C521.7 156.7 530.4 160.1 537.5 162.9ZM118.7 165.6C128 170.1 134.6 179.9 135.7 190.8L136.3 196.4L133.2 194.2C124.6 188 113.7 187.3 103.9 192.2C89.9003 199.4 84.3003 215.7 91.1003 229.7C92.5003 232.7 101 242.2 115.2 256.7L137 279.1V304.1V329H106.6H76.2003L75.6003 313.7C75.2003 305.4 75.0003 273.1 75.2003 242C75.5003 187 75.6003 185.4 77.6003 180.9C85.1003 164.7 103 158 118.7 165.6ZM461.5 164.2C461.8 165.5 463.6 176.4 465.6 188.4L469.1 210.3L464.9 220.9C462.5 226.7 459.9 233.2 458.9 235.3L457.3 239.2L451.5 224.6L445.7 210.1L449.4 187.3C451.4 174.8 453.3 163.9 453.5 163.2C453.8 162.6 455.5 162 457.4 162C460.3 162 461.1 162.4 461.5 164.2ZM815.7 165.6C821.7 168.5 827.3 174.4 830.4 180.9C832.5 185.4 832.5 186.7 832.8 242C832.9 273.1 832.8 305.4 832.4 313.7L831.8 329H801.4H771V304.1V279.1L793.1 256.4C816.3 232.6 818.6 229.5 819.7 220.2C820.4 213.9 818 205.4 813.7 199.8C809.2 193.7 799.7 189 792 189C785.7 189 779.4 190.8 774.9 194L772 196.1V192.7C772 183.6 778.7 171.8 786.6 166.9C795.3 161.5 806.2 161 815.7 165.6ZM121.8 208.5C123 209.4 134.3 221.4 146.9 235.3C159.4 249.2 170.8 261.5 172.1 262.7C177.4 267.6 179.5 267.9 216.6 268.5C255.6 269.3 255.1 269.2 257.9 276.4C259.1 279.7 259.1 280.5 257.7 283.5C254.3 290.6 255 290.5 212.2 290.7L173.8 291L152.7 269.2C111.2 226.6 108.2 223.5 107 221.1C102.8 213 114.2 203.3 121.8 208.5ZM797.9 209.6C801.4 212.5 802.8 217.6 801 221.1C799.8 223.5 796.8 226.6 755.3 269.2L734.2 291L695.8 290.7C653 290.5 653.7 290.6 650.3 283.5C648.9 280.5 648.9 279.7 650.1 276.4C652.9 269.2 652.4 269.3 691.4 268.5C728.5 267.9 730.6 267.6 735.9 262.7C737.2 261.5 748.6 249.2 761.1 235.3C773.7 221.4 785 209.4 786.2 208.5C789.6 206.2 794.4 206.6 797.9 209.6ZM167.2 307.5C170.5 308.8 181.3 309 256.2 309H341.5L341.8 398.1C341.9 447.2 341.8 487.2 341.6 486.9C341.4 486.7 329.8 465.3 316 439.5C302.1 413.6 289.3 390.5 287.6 388C279.8 376.5 263.8 365.9 250.2 363.1C247 362.4 231.5 362 211.1 362C171.9 362 169.6 361.6 162.5 354.5C155.9 347.9 155 343.8 155 318.6V297.6L159.3 301.7C161.6 304 165.2 306.6 167.2 307.5ZM751.5 344.7C750.4 348.6 748.6 351.4 745.5 354.5C738.4 361.7 736.1 362 696.6 362C658 362 654.7 362.5 642.1 369C633.8 373.3 625.3 380.8 620.4 388C618.7 390.5 605.9 413.6 592 439.5C578.2 465.3 566.6 486.7 566.4 486.9C566.2 487.2 566.1 447.2 566.2 398.1L566.5 309H651.8C733.3 309 737.3 308.9 741.3 307.1C743.6 306.1 747.1 303.6 749 301.6L752.5 297.9L752.8 318.6C753 335.1 752.7 340.4 751.5 344.7ZM547.8 323L548.1 337H454H360V323.2C360 315.6 360.2 309.1 360.4 308.9C360.6 308.7 402.8 308.6 454.2 308.7L547.5 309L547.8 323ZM138.6 348.7C141.6 359.1 150.8 370.3 160 375C169.1 379.6 173.5 380 210 380C240.4 380 244.4 380.2 249.9 381.9C257.5 384.3 264.9 389 269.8 394.5C271.9 396.9 288.4 426.5 307.8 462.5L342 526.2V554.6V583H334.1H326.3L317.3 566.2C278.8 494.8 250.3 442.8 247.6 439C243.1 432.8 234 425.6 226.1 422.3L219.5 419.5L170.5 419C127.2 418.4 120.9 418.2 116 416.6C101.5 411.9 89.3003 402 82.8003 389.4C77.5003 379.3 76.0003 372.6 76.0003 358.8V347H107C135.7 347 138.1 347.1 138.6 348.7ZM832 358.8C832 372.6 830.5 379.3 825.2 389.4C818.7 402 806.5 411.9 792 416.6C787.1 418.2 780.8 418.4 737.5 419L688.5 419.5L681.9 422.3C674 425.6 664.9 432.8 660.4 439C657.7 442.8 629.2 494.8 590.7 566.2L581.7 583H573.9H566V554.6V526.2L600.3 462.5C619.6 426.5 636.1 396.9 638.2 394.5C643.1 389 650.5 384.3 658.1 381.9C663.6 380.2 667.6 380 698 380C734.5 380 738.9 379.6 748 375C757.2 370.3 766.4 359.1 769.4 348.7C769.9 347.1 772.3 347 801 347H832V358.8ZM548 469V583H454H360V469V355H454H548V469ZM140 510V583H131H122V510V437H131H140V510ZM221.5 440.2C229.2 444.3 233.2 449.2 242.3 466C246.9 474.5 259.6 497.9 270.5 518C281.4 538.1 293.8 560.9 298.1 568.7L305.8 583H231.9H158V509.9V436.9L187.3 437.2L216.5 437.5L221.5 440.2ZM750 510V583H676.1H602.2L609.9 568.7C614.2 560.9 626.6 538.1 637.5 518C648.4 497.9 661.1 474.5 665.7 466C674.5 449.7 678.9 444.2 685.5 440.8C692.2 437.3 693.6 437.2 722.3 437.1L750 437V510ZM786 510V583H777H768V510V437H777H786V510Z" fill="#005dc7" stroke="#005dc7" stroke-width="6"/>
               </g>
               </svg>
-              
-              
+
+
            </div>
            <div class="serv__text">
              <div class="serv__name">{% trans 'Консультации по бухгалтерскому учету' %}</div>
-             <di class="serv__text">{% trans 'Предоставление информации о бухгалтерии' %}</div>
+             <div class="serv__text">{% trans 'Предоставление информации о бухгалтерии' %}</div>
            </div>
+           </div>
+
           </div>
         </div>
       </div>
@@ -352,53 +384,61 @@
         <div class="definition__title" data-aos="fade-down">{% trans 'Наши' %}  <span>{% trans 'тарифы' %}</span></div>
       </div>
       <div class="container">
+
+
         <div class="definition__cards">
-          {% for rate in rates %}
+        {% for rate in rates %}
           <div data-aos="fade-up" data-aos-duration="200" class="position-relative cards__hover">
             <div class="def__card">
-              <div class="dc__top"><a href="{% url 'rate_detail' rate.pk %}">{{rate.title}}</a></div>
+              <div class="dc__top"><a href="{% url 'rate_edit' rate.pk %}">{{rate.title}}</a></div>
               <div class="dc__bottom">
                 <ul class="fc__ul">
                   <li class="fc__li">{{rate.first}}</li>
                   <li class="fc__li">{{rate.second}}</li>
                   <li class="fc__li">{{rate.third}}</li>
                 </ul>
-                <div class="dc__price">{% trans 'от' %} <span class="dc__sum">{{rate.prize}} сум</span></div>
-                <button  type="button" class="btn more button_slide" id="slide_down" onclick="myModal()" data-bs-toggle="modal"  data-bs-target="#exampleModal1">{% trans 'Подробнее' %}</button>
+                <div class="dc__price"> <div class="dc__sum" >{{rate.prize}} сум</div></div>
+                <button  type="button" class="btn more button_slide" id="slide_down"   onclick="myModal()" data-bs-toggle="modal"  data-bs-target="#exampleModal{{ rate.id }}">{% trans 'Подробнее' %}</button>
 
               </div>
             </div>
           </div>
-          <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+
+
+          <div class="modal fade" id="exampleModal{{ rate.id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ rate.id }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="modal-title" id="exampleModalLabel{{ rate.id }}">{{rate.title }} </h5>
+                  <button  type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                   <ul>
+                    {% for desc in rate.descs.all %}
+                      <li>{{desc}}</li>
+                    {% endfor %}
+                  </ul>
                 </div>
               </div>
             </div>
-          </div>
-          {% endfor %}
 
+          </div>
+
+
+
+        {% endfor %}
         </div>
       </div>
     </section>
     <section class="return__call">
     <div class="container return__container">
       <div class="return__title" data-aos="fade-right" data-aos-delay="200">
-        {% trans 'ОСТАВЬТЕ ЗАЯВКУ СЕЙЧАСИ ПОЛУЧИТЕ' %} <span style="color:#005dc7;">{% trans '70% СКИДКУ НА ЧЕТВЕРТЫЙ МЕСЯЦ!' %}</span>
+        {% trans 'ОСТАВЬТЕ ЗАЯВКУ СЕЙЧАС И ПОЛУЧИТЕ' %} <span style="color:#005dc7;">{% trans '70% СКИДКУ НА ЧЕТВЕРТЫЙ МЕСЯЦ!' %}</span>
       </div>
-      <form class="return__input">
-        <input type="text" class="ret__inp" placeholder="{% trans 'Напишите ваше имя' %}" required>
-        <input type="text" class="ret__inp" placeholder="{% trans 'Напишите ваш номер' %}" required>
+      <form class="return__input" method="post">
+        {% csrf_token %}
+        <input name="name" type="text" class="ret__inp" placeholder="{% trans 'Напишите ваше имя' %}" required>
+        <input name="number" type="text" class="ret__inp" placeholder="{% trans 'Напишите ваш номер' %}" required>
         <button type="submit" class="ret__btn">{% trans 'отправить' %}</button>
       </form>
     </div>
@@ -435,7 +475,7 @@
               <div class="card__img">
                 <img src="{% static 'images/papka3.svg' %}" alt="rasm">
               </div>
-              <div class="card__title">{% trans 'ПРОФЕССИОНАЛНЫЙ' %}</div>
+              <div class="card__title">{% trans 'ПРОФЕССИОНАЛЬНЫЙ' %}</div>
               <div class="card__subtitle">{% trans 'Никаких ежемесячных отчислений в Соцфонд за бухгалтера' %}</div>
             </text>
             </div>
@@ -473,7 +513,7 @@
               </svg>
           </div>
           <div class="client__name small">{% trans 'Розничная торговля' %}</div>
-          <div class="go-corner" href="#">
+          <div class="go-corner">
             <div class="go-arrow">
               
             </div>
@@ -496,7 +536,7 @@
               
           </div>
           <div class="client__name">{% trans 'Производство' %}</div>
-          <div class="go-corner" href="#">
+          <div class="go-corner" >
             <div class="go-arrow">
               
             </div>
@@ -512,7 +552,7 @@
                 
             </div>
             <div class="client__name">{% trans 'Учебные центры' %}</div>
-            <div class="go-corner" href="#">
+            <div class="go-corner" >
               <div class="go-arrow">
                 
               </div>
@@ -535,7 +575,7 @@
               
           </div>
           <div class="client__name">{% trans 'Оптовые компании' %}</div>
-          <div class="go-corner" href="#">
+          <div class="go-corner" >
             <div class="go-arrow">
               
             </div>
@@ -558,7 +598,7 @@
               
           </div>
           <div class="client__name">{% trans 'IT компании' %}</div>
-          <div class="go-corner" href="#">
+          <div class="go-corner">
             <div class="go-arrow">
               
             </div>
@@ -590,9 +630,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-           <form class="st__form">
-            <input type="text" class="st__m__input" placeholder="{% trans 'Напишите ваше имя' %}" required>
-            <input type="number" class="st__m__input" placeholder="{% trans 'Напишите ваш номер' %}" required>
+           <form class="st__form" method="post">
+             {% csrf_token %}
+            <input name="name" type="text" class="st__m__input" placeholder="{% trans 'Напишите ваше имя' %}" required>
+            <input name="number" type="number" class="st__m__input" placeholder="{% trans 'Напишите ваш номер' %}" required>
           <div class="modal-footer"></div>
             <button type="submit" class="st__m__btn">{% trans 'Отправить' %}</button>
            </form>
@@ -602,7 +643,7 @@
       </div>
     </section>
     <section class="comment" id="comments__uc">
-      <div class="cause__title"  data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-sine"> <span class="color">ПРИЧИН </span>ДОВЕРИТЬ СВОЮ КОМПАНИЮ НАМ</div>
+      <div class="cause__title"  data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-sine"> <span class="color">{% trans 'ПРИЧИН' %} </span>{% trans 'ДОВЕРИТЬ СВОЮ КОМПАНИЮ НАМ' %}</div>
      <div class="main__cause">
       <div class="container cause__container">
         <div class="cause__content">
@@ -626,7 +667,7 @@
     </section>
     <section class="geoposition" id="uc__position">
       <div class="container">
-        <div class="pos__title" ><div data-aos="fade-left"  data-aos-duration="300"  data-aos-easing="linear">{% trans 'Свяжатесь с нами мы будем рады вас принимать на' %} <span class="kofe">{% trans 'кофе' %}</span></div></div>
+        <div class="pos__title" ><div data-aos="fade-left"  data-aos-duration="300"  data-aos-easing="linear">{% trans 'Свяжитесь с нами мы будем рады вас принимать на' %} <span class="kofe">{% trans 'кофе' %}</span></div></div>
         <div class="position__box">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5996.368069530804!2d69.209511!3d41.283099!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x273f277784d40863!2zNDHCsDE2JzU5LjIiTiA2OcKwMTInMzQuMiJF!5e0!3m2!1sru!2s!4v1637232836206!5m2!1sru!2s" width="100%" height="100%" style="border:0;border-radius: 30px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
@@ -644,11 +685,11 @@
         <a href="#uc__position" class="flink__text"><img class="fsc__img" src="{% static 'images/footer-location-1.svg' %}" alt="rasm"><div>{% trans 'Ташкент г. Чиланзарский р. Улица ... дом 11/11' %}</div></a>
       </div>
       <div class="f__menues">
-          <a href="#superiority" class="f__menu">Услуги</a>
-          <a href="#us__cost" class="f__menu">Тарифы</a>
-          <a href="#us__client" class="f__menu">С кем мы работаем</a>
-          <a href="#comments__uc" class="f__menu">Доверия</a>
-          <a href="#uc__position" class="f__menu">Контакты</a>
+          <a href="#superiority" class="f__menu">{% trans 'Услуги' %}</a>
+          <a href="#us__cost" class="f__menu">{% trans 'Тарифы' %}</a>
+          <a href="#us__client" class="f__menu">{% trans 'С кем мы работаем' %}</a>
+          <a href="#comments__uc" class="f__menu">{% trans 'Доверия' %}</a>
+          <a href="#uc__position" class="f__menu">{% trans 'Контакты' %}</a>
       </div>
         <div class="f__linkd">
           <div class="fl__wr__resp">
@@ -663,15 +704,15 @@
               <img src="{% static 'images/telegram-1.svg' %}" class="fsc__img" alt="rasm">
             </a>
             <a href="#" class="flink__social">
-              <img src="{% static 'images/facebook-1.svg' %}" class="fsc__img"alt="rasm">
+              <img src="{% static 'images/facebook-1.svg' %}" class="fsc__img" alt="rasm">
             </a>
            </div>
             <div class="pad">
             <div class="gov">
-              bestaudit &COPY;2021. {% trans 'Все права защишены' %}
+              bestaudit &COPY;2021. Все права защишены
             </div>
             <div class="propduct__comp">
-              <div class="pr_comp__title">{% trans 'Разработано компанией' %}</div>
+              <div class="pr_comp__title">Разработано компанией</div>
               <a href="https://t.me/parvoz_wd" class="pad__logo">
                 <img src="{% static 'images/PAD-logo.svg' %}" alt="rasm">
                 <div class="pad__name">PARWOZ ADVENCED TECHNOLOGY</div>
@@ -684,9 +725,11 @@
      </div>
     </footer>
   </div>
-<script src="{% static 'jss/aos.min.js' %}"></script>
+{% block javascript %}
+    <script src="{% static 'jss/aos.min.js' %}"></script>
     <script src="{% static 'jss/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'jss/app.js' %}"></script>
-    
+{% endblock %}
   </body>
 </html>
+

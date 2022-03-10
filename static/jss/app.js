@@ -1,46 +1,3 @@
-let text = [" БУХГАЛТЕРСКИЕ УСЛУГИ В ТАШКЕНТЕ"];
-let i = 0;
-let speed = 100;
-let speedLast = 1000;
-
-let typingTextIndex = 0;
-
-function type() {
-  document.getElementById("hero").innerHTML += text[typingTextIndex].charAt(i);
-  i++;
-  setTimeout(
-    () => {
-      if (i >= text[typingTextIndex].length) {
-        erease();
-      } else {
-        type();
-      }
-    },
-    i == text[typingTextIndex].length ? speedLast : speed
-  );
-}
-type();
-
-function erease() {
-  document.getElementById("hero").innerHTML = document
-    .getElementById("hero")
-    .innerHTML.substr(0, document.getElementById("hero").innerHTML.length - 1);
-  i--;
-  setTimeout(() => {
-    if (i <= 0) {
-      if (typingTextIndex >= text.length - 1) {
-        typingTextIndex = 0;
-      } else {
-        typingTextIndex++;
-      }
-      type();
-    } else {
-      erease();
-    }
-  }, speed);
-}
-
-// CODS FOR WHY__US
 const ANIMATEDCLASSNAME = "animated";
 const ELEMENTS = document.querySelectorAll(".HOVER");
 const ELEMENTS_SPAN = [];
@@ -123,13 +80,13 @@ function myModal() {
     document.getElementById("dc_1").classList.remove("myactive");
     document.getElementById("slide_down").classList.remove("myactive");
     document.getElementById("dc_s1").classList.remove("myactive_s");
-    
+
   }
 }
 let myremv = setInterval(myModal, 20);
 
 function myModal2() {
-  
+
   let myrResulr2 = document.getElementById("exampleModal2");
   if (myrResulr2.style.display === "block") {
     document.getElementById("dc_2").classList.add("myactive");
@@ -170,9 +127,3 @@ function myModal4() {
   }
 }
 let myremv4 = setInterval(myModal4, 20);
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import Message, Rate
+from .models import Message, Rate, DescRate
 
 
 @register(Message)
@@ -11,4 +11,8 @@ class MessageTranslationOptions(TranslationOptions):
 class RateTranslationOptions(TranslationOptions):
     fields = ('title', 'first', 'second', 'third')
 
+
+@register(DescRate)
+class DescRateTranslationOptions(TranslationOptions):
+    fields = ('tasks',)
 

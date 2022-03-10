@@ -1,8 +1,11 @@
 from django.contrib import admin
-from .models import Rate, Videos, Message
+from .models import Rate, DescRate, Message
 from modeltranslation.admin import TranslationAdmin
 
-admin.site.register(Videos)
+
+@admin.register(DescRate)
+class DescRateAdmin(TranslationAdmin):
+    list_display = ['tasks']
 
 
 @admin.register(Rate)

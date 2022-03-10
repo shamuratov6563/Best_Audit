@@ -27,12 +27,20 @@ class Videos(models.Model):
         return self.title
 
 
+class DescRate(models.Model):
+    tasks = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.tasks
+
+
 class Rate(models.Model):
     title = models.CharField(max_length=100)
     first = models.CharField(max_length=100, null=True, blank=True)
     second = models.CharField(max_length=100, null=True, blank=True)
     third = models.CharField(max_length=100, null=True, blank=True)
     prize = models.CharField(max_length=20)
+    descs = models.ManyToManyField(DescRate)
 
     class Meta:
         db_table = 'rate'
@@ -42,4 +50,6 @@ class Rate(models.Model):
 
     def get_absolute_url(self):
         return reverse('rate_detail', args=[str(self.pk)])
+
+
 
