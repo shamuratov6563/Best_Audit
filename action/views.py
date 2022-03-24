@@ -13,12 +13,18 @@ chat_id = '5139402876'
 
 
 def home():
-    response = requests.get('https://v6.exchangerate-api.com/v6/d88fe1b17f05efb286a522b5/pair/USD/UZS')
-    response_e = requests.get('https://v6.exchangerate-api.com/v6/d88fe1b17f05efb286a522b5/pair/EUR/UZS')
-    response_r = requests.get('https://v6.exchangerate-api.com/v6/d88fe1b17f05efb286a522b5/pair/RUB/UZS')
-    a = round(response.json()['conversion_rate'], 2)
-    e = round(response_e.json()['conversion_rate'], 2)
-    r = round(response_r.json()['conversion_rate'], 2)
+    DOLLAR_RUB = 'https://nbu.uz/uz/exchange-rates/'
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'}
+    full_page = requests.get(DOLLAR_RUB, headers)
+    soup = BeautifulSoup(full_page.content, 'html.parser')
+    a = soup.findAll('a', {'href': '/uz/exchange-rates/', }, 'span')
+    r = soup.findAll('td')
+    r = str(r)
+    r = r[574:580]
+    e = a[4].text
+    a = a[1].text
+    a = a[6:]
+    e = e[6:]
     c = [a, e, r]
     return c
 
@@ -48,18 +54,6 @@ def message(request):
     }
 
     return render(request, 'index.html', context)
-
-
-def upload_video(request):
-    if request.method == 'POST':
-        title = request.POST['title']
-        video = request.POST['video']
-
-        content = Videos(title=title, video=video)
-        content.save()
-        return redirect('home')
-
-    return render(request, 'upload.html')
 
 
 class RateUpdateView(UpdateView):

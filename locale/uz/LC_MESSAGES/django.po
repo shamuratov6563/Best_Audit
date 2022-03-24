@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 00:25+0500\n"
+"POT-Creation-Date: 2022-03-24 17:53+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,204 +20,217 @@ msgstr ""
 
 #: config/settings.py:126
 msgid "Russian"
-msgstr "Russia"
+msgstr ""
 
 #: config/settings.py:127
 msgid "Uzbek"
-msgstr "Uzbek"
+msgstr ""
 
-#: templates/index.html:27
+#: templates/index.html:96
 msgid "Наши бухгалтерские услуги вам"
-msgstr "Bizning bug`alteriya qurslarimiz sizga"
+msgstr "Bizning bug`alteriya hizmatlarimiz sizga"
 
-#: templates/index.html:81 templates/index.html:115
+#: templates/index.html:97
+msgid "полезний !"
+msgstr "foydali !"
+
+#: templates/index.html:151 templates/index.html:185
 msgid "УСЛУГИ"
 msgstr "XIZMATLAR"
 
-#: templates/index.html:84 templates/index.html:116
+#: templates/index.html:154 templates/index.html:186
 msgid "ТАРИФЫ"
 msgstr "TARIFLAR"
 
-#: templates/index.html:87 templates/index.html:118
+#: templates/index.html:157 templates/index.html:188
 msgid "ПРЕИМУЩЕСТВА"
-msgstr "FOYDALARI"
+msgstr "USTUNLIKLARIMIZ"
 
-#: templates/index.html:90 templates/index.html:121
-msgid "С КЕМ МЫ РАБОТАЕМ"
-msgstr "BIZNING MIJOZLAR"
+#: templates/index.html:160 templates/index.html:191 templates/index.html:566
+msgid "НАШИ ПАРТНЕРЫ"
+msgstr "BIZNING HAMKORLAR"
 
-#: templates/index.html:93
-msgid "ОТЗЫВЫ"
-msgstr "SHARHLAR"
+#: templates/index.html:163 templates/index.html:193
+msgid "О НАС"
+msgstr "BIZ HAQIMIZDA"
 
-#: templates/index.html:96 templates/index.html:124
+#: templates/index.html:166 templates/index.html:194
 msgid "КОНТАКТЫ"
-msgstr "ALOQALAR"
+msgstr "ALOQA"
 
-#: templates/index.html:123
-msgid "ДОВЕРИЯ"
-msgstr "ISHONCH"
+#: templates/index.html:242
+msgid "БУХГАЛТЕРСКИЕ УСЛУГИ В ТАШКЕНТЕ"
+msgstr "BUXGALTERIYA XIZMATLARI TOSHKENTDA"
 
-#: templates/index.html:173
+#: templates/index.html:253
 msgid "Воспользуйтесь нашими качественными бухгалтерскими услугами!"
 msgstr "Bizning sifatli buxgalteriya xizmatlarimizdan foydalaning!"
 
-#: templates/index.html:176
+#: templates/index.html:256
 #, python-format
 msgid "Закажи через форму и получи скидку 20%%"
-msgstr "forma orqali buyurtma bering va 20% chegirmaga ega bo'ling"
+msgstr "Ushbu forma orqali buyurtma bering va 20% chegirmaga ega bo'ling"
 
-#: templates/index.html:208
+#: templates/index.html:288
 msgid "Мы будем звонят вам"
-msgstr ""
+msgstr "Biz siz bilan bog'lanamiz!"
 
-#: templates/index.html:213
+#: templates/index.html:293
 msgid "Заказать звонок прямо сейчас"
-msgstr ""
+msgstr "Hoziroq buyurtma bering!"
 
-#: templates/index.html:215
+#: templates/index.html:295
 msgid "Заполните форму и Мы проконсильтурует Вас"
-msgstr ""
+msgstr "Formani to'ldiring va biz siz bilan bog'lanamiz"
 
-#: templates/index.html:227 templates/index.html:400 templates/index.html:594
+#: templates/index.html:309 templates/index.html:500 templates/index.html:695
 msgid "Напишите ваше имя"
-msgstr ""
+msgstr "Ismingizni kiriting"
 
-#: templates/index.html:237 templates/index.html:401 templates/index.html:595
+#: templates/index.html:320 templates/index.html:501 templates/index.html:696
 msgid "Напишите ваш номер"
-msgstr ""
+msgstr "Raqamingizni kiriting"
 
-#: templates/index.html:239 templates/index.html:597
+#: templates/index.html:322 templates/index.html:698
 msgid "Отправить"
-msgstr ""
+msgstr "Jo'natish"
 
-#: templates/index.html:250
+#: templates/index.html:333
 msgid "наши"
-msgstr ""
+msgstr "Bizning"
 
-#: templates/index.html:250
+#: templates/index.html:333
 msgid "услуги"
-msgstr ""
+msgstr "xizmatlar"
 
-#: templates/index.html:252
+#: templates/index.html:335
 msgid ""
 "Вы можете развивать свой бизнес и экономить много ресурсов, используя наши "
 "следующие услуги"
 msgstr ""
+"Biznig xizmatlaringizdan foydalanib, biznesingizni rivojlantirishingiz va "
+"ko'plab resurslarni tejang!"
 
-#: templates/index.html:272
+#: templates/index.html:355
 msgid "Подготовка отчетности"
-msgstr ""
+msgstr "Soliq hisoboti"
 
-#: templates/index.html:273
+#: templates/index.html:356
 msgid "Подготовка и своевременная подача всех видов налоговых отчётов"
 msgstr ""
+"Barcha turdagi soliq hisobotlarini tayyorlash va o'z vaqtida taqdim etish"
 
-#: templates/index.html:307
+#: templates/index.html:391
 msgid "Ведение бухгалтерского учета"
-msgstr ""
+msgstr "Buxgalteriya hisobi"
 
-#: templates/index.html:308
+#: templates/index.html:392
 msgid "Бухгалтерский учет и контроль движения денежных средств"
-msgstr ""
+msgstr "Buxgalteriya hisobi va pul oqimini nazorat qilish"
 
-#: templates/index.html:325
+#: templates/index.html:410
 msgid "Кадровый учет"
-msgstr ""
+msgstr "Kadrlar hisobi"
 
-#: templates/index.html:326
+#: templates/index.html:411
 msgid "Регистрация трудовых договоров и работа со всеми кадровыми документами"
 msgstr ""
+"Mehnat shartnomalarini ro'yxatdan o'tkazish va barcha xodimlar hujjatlari "
+"bilan ishlash"
 
-#: templates/index.html:343
+#: templates/index.html:429
 msgid "Консультации по бухгалтерскому учету"
-msgstr ""
+msgstr "Buxgalteriya bo'yicha konsalting"
 
-#: templates/index.html:344
+#: templates/index.html:430
 msgid "Предоставление информации о бухгалтерии"
-msgstr ""
+msgstr "Buxgalteriya hisobi haqida ma'lumot berish"
 
-#: templates/index.html:352
+#: templates/index.html:440
 msgid "Наши"
-msgstr ""
+msgstr "Bizning"
 
-#: templates/index.html:352
+#: templates/index.html:440
 msgid "тарифы"
-msgstr ""
+msgstr "ta`riflar"
 
-#: templates/index.html:366
-msgid "от"
-msgstr ""
-
-#: templates/index.html:367
+#: templates/index.html:461
 msgid "Подробнее"
-msgstr ""
+msgstr "Ba`tafsil"
 
-#: templates/index.html:397
-msgid "ОСТАВЬТЕ ЗАЯВКУ СЕЙЧАСИ ПОЛУЧИТЕ"
-msgstr ""
+#: templates/index.html:496
+msgid "ОСТАВЬТЕ ЗАЯВКУ СЕЙЧАС И ПОЛУЧИТЕ"
+msgstr "HOZIROQ ARIZA QOLDIRING VA"
 
-#: templates/index.html:397
+#: templates/index.html:496
 #, python-format
 msgid "70%% СКИДКУ НА ЧЕТВЕРТЫЙ МЕСЯЦ!"
-msgstr ""
+msgstr "TO'RINCHI OY UCHUN 70% CHEGIRMAGA EGA BO`LING!"
 
-#: templates/index.html:402
+#: templates/index.html:502
 msgid "отправить"
-msgstr ""
+msgstr "jo`natish"
 
-#: templates/index.html:409
+#: templates/index.html:509
 msgid "ПОЧЕМУ ВЫ ЭКОНОМИТЕ ЗА СЧЕТ"
-msgstr ""
+msgstr "QANDAY QILIB AUTSORS (MASOFAVIY)"
 
-#: templates/index.html:409
+#: templates/index.html:509
 msgid "АУТСОРС (УДАЛЕННОЙ)"
-msgstr ""
+msgstr "BUXGALTERIYA"
 
-#: templates/index.html:409
+#: templates/index.html:509
 msgid "БУХГАЛТЕРИИ?"
-msgstr ""
+msgstr "BILAN SIZ YUTASIZ?"
 
-#: templates/index.html:418
-msgid "ЕКОНОМИСНЫЙ"
-msgstr ""
+#: templates/index.html:518
+#, fuzzy
+#| msgid "ЕКОНОМИСНЫЙ"
+msgid "ЭКОНОМИЧНЫЙ"
+msgstr "IQTISODIY"
 
-#: templates/index.html:419
+#: templates/index.html:519
 msgid ""
 "Вы не платите зарплату и расходы отдельного штатного подразделения "
 "бухгалтерии"
 msgstr ""
+"Siz alohida to'liq kunlik buxgalteriya bo'limining ish haqi va xarajatlarini "
+"to'lamaysiz"
 
-#: templates/index.html:428
+#: templates/index.html:528
 msgid "НАДЕЖНОСТЬ"
-msgstr ""
+msgstr "ISHONCH"
 
-#: templates/index.html:429
+#: templates/index.html:529
 msgid "Вы экономите место в офисе за счет услуг удаленной бухгалтерии"
 msgstr ""
+"Masofaviy buxgalteriya xizmatlari yordamida ofisingizdagi joyni tejang "
 
-#: templates/index.html:438
-msgid "ПРОФЕССИОНАЛНЫЙ"
-msgstr ""
 
-#: templates/index.html:439
+#: templates/index.html:538
+msgid "ПРОФЕССИОНАЛЬНЫЙ"
+msgstr "PROFESSIONAL"
+
+#: templates/index.html:539
 msgid "Никаких ежемесячных отчислений в Соцфонд за бухгалтера"
-msgstr ""
+msgstr "Buxgalter uchun ijtimoiy jamg'armaga oylik ajratmalar yo'q"
 
-#: templates/index.html:448
+#: templates/index.html:548
 msgid "УДОБНЫЙ"
-msgstr ""
+msgstr "QULAY"
 
-#: templates/index.html:449
+#: templates/index.html:549
 msgid ""
 "Удаленная бухгалтерия сама проходит документальные проверки налоговых органов"
 msgstr ""
+"Buxgalteriya hisobining o'zi soliq organlarining "
+"tekshiruvidan o'tadi"
 
-#: templates/index.html:458
+#: templates/index.html:558
 msgid "О КОМПАНИИ"
-msgstr ""
+msgstr "KOMPANIYA"
 
-#: templates/index.html:460
+#: templates/index.html:560
 msgid ""
 "предоставляет клиентам персональные услуги в области налогообложения и "
 "бухгалтерского учета в г. Ташкента с 2016 года. В дополнение к специальной "
@@ -226,86 +239,166 @@ msgid ""
 "бухгалтерского учета. Мы готовы к решению любых задач в качестве надежного "
 "партнера по налоговому планированию и финансовому консультированию."
 msgstr ""
+"2016-yildan buyon Toshkent shahrida soliq va buxgalteriya hisobi sohasida "
+"mijozlarga shaxsiy xizmatlar ko‘rsatib kelmoqda. Ixtisoslashtirilgan kasbiy "
+"tayyorgarlikdan tashqari, bizning mutaxassislar jamoasi buxgalteriya hisobi "
+"uchun zarur bo'lgan barcha ko'nikmalar, bilim va tahliliy ko'nikmalarga ega."
+"Biz soliqni rejalashtirish va moliyaviy konsalting sohasida ishonchli hamkor "
+"sifatida har qanday muammolarni hal qilishga tayyormiz."
 
-#: templates/index.html:466
-msgid "С КЕМ МЫ РАБОТАЕМ?"
-msgstr ""
-
-#: templates/index.html:475
+#: templates/index.html:575
 msgid "Розничная торговля"
-msgstr ""
+msgstr "Chakana savdo"
 
-#: templates/index.html:498
+#: templates/index.html:598
 msgid "Производство"
-msgstr ""
-
-#: templates/index.html:514
-msgid "Учебные центры"
-msgstr ""
-
-#: templates/index.html:537
-msgid "Оптовые компании"
-msgstr ""
-
-#: templates/index.html:560
-msgid "IT компании"
-msgstr ""
-
-#: templates/index.html:578
-msgid "если вы оставите нам заявку здесь, получите"
-msgstr ""
-
-#: templates/index.html:578
-#, python-format
-msgid "скидку до 20%%"
-msgstr ""
-
-#: templates/index.html:581
-msgid "отправить заявку"
-msgstr ""
-
-#: templates/index.html:589
-msgid "Отправте Заявку"
-msgstr ""
-
-#: templates/index.html:611
-msgid ""
-"Мы комплексно походим к работе с клиентом, предлагая широкий спектр услуг, "
-"помогающих Вам сэкономить время для эффективного развития бизнеса."
-msgstr ""
+msgstr "Ishlab chiqarish"
 
 #: templates/index.html:614
+msgid "Учебные центры"
+msgstr "O'quv markazlari"
+
+#: templates/index.html:637
+msgid "Оптовые компании"
+msgstr "Ulgurji savdo"
+
+#: templates/index.html:660
+msgid "IT компании"
+msgstr "IT kompaniyalar"
+
+#: templates/index.html:678
+msgid "если вы оставите нам заявку здесь, получите"
+msgstr "bu erda bizga ariza qoldirsangiz,"
+
+#: templates/index.html:678
+#, python-format
+msgid "скидку до 20%%"
+msgstr "20% chegirmaga ega bo`lasiz"
+
+#: templates/index.html:681
+msgid "отправить заявку"
+msgstr "ariza yuborish"
+
+#: templates/index.html:689
+msgid "Отправте Заявку"
+msgstr "Ariza yuborish"
+
+#: templates/index.html:706
+msgid "ПРИЧИН"
+msgstr "kompaniyangizni"
+
+#: templates/index.html:706
+msgid "ДОВЕРИТЬ СВОЮ КОМПАНИЮ НАМ"
+msgstr "BIZGA ISHONISH SABABLARI"
+
+#: templates/index.html:710
 msgid ""
-"Мы поддерживаем качество наших услуг на должном высоком уровне, что "
-"обеспечивается постоянным совершенствованием наших сотрудников."
-msgstr ""
+"Наши фундаментальных ценностей – обеспечение преимуществ для клиентов, "
+"единая международная сеть, уважение личности, лучшие сотрудники, честность и "
+"эффективное управление - определяют культуру и определяют характер BEST "
+"AUDIT. В соответствии с этими принципами мы действуем и принимаем решения."
+msgstr "Bizning asosiy qadriyatlarimiz - mijozlarga qiymat berish, global tarmoq, shaxsga hurmat, eng yaxshi xodimlar, halollik va samarali boshqaruv - BEST AUDIT madaniyati va xarakterini belgilaydi. Biz ushbu tamoyillarga muvofiq harakat qilamiz va qarorlar qabul qilamiz."
 
-#: templates/index.html:617
+#: templates/index.html:715
 msgid ""
-"Мы бережно относимся к благосостоянию наших клиентов, не заставляя их "
-"платить за услуги, которые не принесут им желаемого результата,"
-msgstr ""
+" Обеспечение преимуществ для клиентов – содействовать клиентам в построении "
+"высокоэффективного бизнеса, формировать долгосрочные отношения, быть чуткими "
+"и внимательными к их потребностям, обеспечивать неизменно высокий результат. "
+msgstr "Mijozlarga imtiyozlar berish - mijozlarga yuqori samarali biznes qurish, uzoq muddatli munosabatlarni o'rnatish, ularning ehtiyojlariga sezgir va e'tiborli bo'lish va izchil natijalarni taqdim etishda yordam berish."
 
-#: templates/index.html:629
-msgid "Свяжатесь с нами мы будем рады вас принимать на"
-msgstr ""
+#: templates/index.html:718
+msgid ""
+"Единая международная сеть – использовать все преимущества глобальной "
+"информации, связей, сотрудничества и знаний для оказания услуг "
+"исключительного качества клиентам независимо от географического расположения "
+"их бизнеса."
+msgstr "Yagona xalqaro tarmoq - biznesning geografik joylashuvidan qat'iy nazar, mijozlarga ajoyib xizmatlarni taqdim etish uchun global ma'lumotlar, aloqalar, hamkorlik va bilimlardan to'liq foydalanish."
 
-#: templates/index.html:629
-msgid "кофе"
-msgstr ""
+#: templates/index.html:721
+msgid ""
+" Честность – быть честным и неподкупным, внушать доверие, говоря, что "
+"думаешь, делать так, чтобы слова не расходились с делами, нести "
+"ответственность за свои действия. "
+msgstr "Insoflilik – halol va ishonchli bo‘lish, o‘z fikrimizni aytish orqali ishonch uyg‘otish, so‘z amaldan ajralmasligi uchun,  o'z ishimizga mas’uliyatli bo‘lish."
 
-#: templates/index.html:644
+#: templates/index.html:733
+#, fuzzy
+#| msgid "Свяжитесь с нами мы будем рады вас принимать на"
+msgid "Свяжитесь с нами будем рады вам помочь!"
+msgstr "BIZ BILAN BOG`LANING, BIZ SIZGA YORDAM BERISHDAN XURSANDMIZ"
+
+#: templates/index.html:748
 msgid "Ташкент г. Чиланзарский р. Улица ... дом 11/11"
-msgstr ""
+msgstr "Tashkent sh. Chilonzor t. uy 11/11"
 
-#: templates/index.html:657
+#: templates/index.html:751
+msgid "Услуги"
+msgstr "Xizmatlar"
+
+#: templates/index.html:752
+msgid "Тарифы"
+msgstr "Ta`riflar"
+
+#: templates/index.html:753
+msgid "наши партнеры"
+msgstr "bizning hamkorlar"
+
+#: templates/index.html:754
+msgid "о нас"
+msgstr "biz haqimizda"
+
+#: templates/index.html:755
+msgid "Контакты"
+msgstr "Aloqa"
+
+#: templates/index.html:761
 msgid "Наши социальные сети"
-msgstr ""
+msgstr "Bizning ijtimoiy tarmoqlar"
 
-#: templates/index.html:671
-msgid "Все права защишены"
-msgstr ""
+#~ msgid ""
+#~ "Мы комплексно походим к работе с клиентом, предлагая широкий спектр "
+#~ "услуг, помогающих Вам сэкономить время для эффективного развития бизнеса."
+#~ msgstr ""
+#~ "Biz mijoz bilan ishlashga kompleks yondashamiz, biznesni samarali "
+#~ "rivojlantirish uchun vaqtni tejashga yordam beradigan keng ko‘lamli "
+#~ "xizmatlarni taklif qilamiz."
 
-#: templates/index.html:674
-msgid "Разработано компанией"
-msgstr ""
+#~ msgid ""
+#~ "Мы поддерживаем качество наших услуг на должном высоком уровне, что "
+#~ "обеспечивается постоянным совершенствованием наших сотрудников."
+#~ msgstr ""
+#~ "Biz xizmatlar sifatini yuqori darajada ushlab turamiz, bu esa "
+#~ "xodimlarimizning doimiy takomillashuvi bilan ta'minlanadi."
+
+#~ msgid ""
+#~ "Мы бережно относимся к благосостоянию наших клиентов, не заставляя их "
+#~ "платить за услуги, которые не принесут им желаемого результата,"
+#~ msgstr ""
+#~ "Biz mijozlarimizning farovonligi haqida qayg'uramiz, ularni kerakli "
+#~ "natijaga olib kelmaydigan xizmatlar uchun to'lashga majburlamaymiz,"
+
+#~ msgid "С кем мы работаем"
+#~ msgstr "Bizning mijozlar"
+
+#~ msgid "Доверия"
+#~ msgstr "Ishonch"
+
+#~ msgid "С КЕМ МЫ РАБОТАЕМ"
+#~ msgstr "BIZNING MIJOZLAR"
+
+#~ msgid "ДОВЕРИЯ"
+#~ msgstr "ISHONCH"
+
+#~ msgid "С КЕМ МЫ РАБОТАЕМ?"
+#~ msgstr "BIZNING MIJOZLAR"
+
+#~ msgid "ОТЗЫВЫ"
+#~ msgstr "SHARHLAR"
+
+#, fuzzy
+#~| msgid "БУХГАЛТЕРСКИЕ УСЛУГИ В ТАШКЕНТЕ"
+#~ msgid "БУХГАЛТЕРСКИЙ УЧЕТ И АУТСОРСИНГ"
+#~ msgstr "BUXGALTERIYA XIZMATLARI TOSHKENTDA"
+
+#~ msgid "кофе"
+#~ msgstr "xursand bo`lamiz"

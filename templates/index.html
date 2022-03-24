@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 {% load static %}
 {% load i18n  %}
-<html lang="en">
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/aos.min.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/Gilroy/stylesheet.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <title>BEST AUDIT</title>
     <style>
+       * {
+          margin: 0;
+          padding: 0;
+          font-family: "Gilroy" !important;
+        }
+        .hero__none{
+          @media (max-width:992px) {
+            display: none !important;
+          }
+        }
+        .main__title {
+          overflow: hidden;
+        }
       @media (max-width: 575px) {
         .change__lang {
           margin-right: 15px;
@@ -31,18 +46,46 @@
         color: #009100;
       }
       .tell__us, .serv__name{
-
-      font-weight:500;
+      font-weight:600;
       }
-      * {
-          margin: 0;
-          padding: 0;
-          font-family: "Gilroy" !important;
-        }
+     
       .sn__number, .call__now, .service__title h2, .definition__title, .pos__title, .cause__title, .d_end__title{
       font-weight: 600;
       }
+      
+      .logo {
+          width: 286px;
+          height: 38px;
+        }
 
+        @media (max-width: 575px) {
+          .logo{
+            width: 162px;
+            height: 22px;
+            margin-right: 30px;
+             }
+         }
+
+         @media (max-width: 380px) {
+          .logo{
+            margin-right: 15px;
+             }
+         }
+
+        .logo img{
+          width: 100%;
+          height: 100%;
+        }
+      .footer__logo {
+          width: 286px;
+          height: 38px;
+        }
+        .cause__title_subtitle {
+          text-align: center;
+          font-weight: 500;
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
     </style>
   </head>
   <body onscroll="myscroll()" >
@@ -52,12 +95,12 @@
       <div class="container header__container">
         <div class="navbar__top" id="navbar__scrol">
           <div class="logo">
-            <img src="{% static 'images/logo-3.png' %}" alt="logo" />
+            <img src="{% static 'images/logo3.png' %}" alt="logo" />
           </div>
           <div class="currency">
             <div class="comfort__word">
               {% trans 'Наши бухгалтерские услуги вам' %}
-              <span class="succ__color">полезний !</span>
+              <span class="succ__color">{% trans 'полезний !' %}</span>
             </div>
             <div class="dollar">
               <div class="dollar__text">1 USD = {{a}}</div>
@@ -69,11 +112,20 @@
               <div class="dollar__text">1 RUB = {{r}}</div>
             </div>
           </div>
-          <div class="change__lang">
-           <a href="/ru" class="lang__style_ru">Ру</a>
-               <span class="lang__style">/</span>
-           <a href="/uz" class="lang__style_uz">Uz</a>
-          </div>
+          {% get_available_languages as LANGUAGES %}
+          {% get_language_info_list for LANGUAGES as languages %}
+          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+              <div class="change__lang">
+               {% for language in languages %}
+                   {% if language.code == 'ru'  %}
+                       <a href="/{{language.code}}/" class="lang__style_ru">Ру</a>
+                  {% else %}
+                       <span class="lang__style">/</span>
+                   <a href="/{{language.code}}/" class="lang__style_uz">Uz</a>
+                  {%endif%}
+               {% endfor %}
+              </div>
+          </form>
           <a href="tel:998995252277" class="tell__usbtn">
             <img src="{% static 'images/phone.svg' %}" class="phone__link" alt="phone" />
             <div class="tell__us">( 99 ) 525-22-77</div>
@@ -111,10 +163,10 @@
                 <a href="#best__uc" class="menu">{% trans 'ПРЕИМУЩЕСТВА' %}</a>
               </div>
               <div class="menu__link">
-                <a href="#us__client" class="menu">{% trans 'С КЕМ МЫ РАБОТАЕМ' %}</a>
+                <a href="#us__client" class="menu">{% trans 'НАШИ ПАРТНЕРЫ' %}</a>
               </div>
               <div class="menu__link">
-                <a href="#comments__uc" class="menu">{% trans 'ОТЗЫВЫ' %}</a>
+                <a href="#comments__uc" class="menu">{% trans 'О НАС' %}</a>
               </div>
               <div class="menu__link">
                 <a href="#" class="menu">{% trans 'КОНТАКТЫ' %}</a>
@@ -142,9 +194,9 @@
             <a href="#best__uc" class="menu">{% trans 'ПРЕИМУЩЕСТВА' %}</a>
           </div>
           <div class="menu__link">
-            <a href="#us__client" class="menu">{% trans 'С КЕМ МЫ РАБОТАЕМ' %}</a>
+            <a href="#us__client" class="menu">{% trans 'НАШИ ПАРТНЕРЫ' %}</a>
           </div>
-          <div class="menu__link"><a href="#comments__uc" class="menu">{% trans 'ДОВЕРИЯ' %}</a></div>
+          <div class="menu__link"><a href="#comments__uc" class="menu">{% trans 'О НАС' %}</a></div>
           <div class="menu__link"><a href="#uc__position" class="menu">{% trans 'КОНТАКТЫ' %}</a></div>
         </div>
       </div>
@@ -191,7 +243,17 @@
             </div>
           </div>
           <div class="forms">
-            <div class="main__title"  data-aos="fade-left" data-aos-duration="300" ><span id="hero">{% trans 'БУХГАЛТЕРСКИЕ УСЛУГИ В ТАШКЕНТЕ' %}</span> </div>
+            <div class="main__title">
+               <div class="hero__anim">
+                      <div class="hero">{% trans 'БУХГАЛТЕРСКИЕ УСЛУГИ В ТАШКЕНТЕ' %}</div>
+                      {% if LANGUAGE_CODE == 'ru'  %}
+                        <div class="hero hero__none">БУХГАЛТЕРСКИЙ УЧЕТ И АУТСОРСИНГ</div>
+                      {% else %}
+                        <div class="hero hero__none">BUXGALTERIYA HISOBI VA AUTSORSING</div>
+                      {% endif %}
+              </div>
+
+            </div>
             <div class="main__subtitle" data-aos="fade-left" data-aos-duration="500"
             >
             {% trans 'Воспользуйтесь нашими качественными бухгалтерскими услугами!' %}
@@ -390,7 +452,11 @@
         {% for rate in rates %}
           <div data-aos="fade-up" data-aos-duration="200" class="position-relative cards__hover">
             <div class="def__card">
-              <div class="dc__top"><a href="{% url 'rate_edit' rate.pk %}">{{rate.title}}</a></div>
+              {% if user.is_superuser %}
+                <div class="dc__top"><a href="{% url 'rate_edit' rate.pk %}">{{rate.title}}</a></div>
+              {% else %}
+                <div class="dc__top">{{rate.title}}</div>
+              {% endif %}
               <div class="dc__bottom">
                 <ul class="fc__ul">
                   <li class="fc__li">{{rate.first}}</li>
@@ -455,7 +521,7 @@
                     <div class="card__img">
                         <img src="{% static 'images/papka.svg' %}" alt="rasm">
                     </div>
-                    <div class="card__title">{% trans 'ЕКОНОМИСНЫЙ' %}</div>
+                    <div class="card__title">{% trans 'ЭКОНОМИЧНЫЙ' %}</div>
                     <div class="card__subtitle">{% trans 'Вы не платите зарплату и расходы отдельного штатного подразделения бухгалтерии' %}</div>
                   </text>
             </div>
@@ -503,7 +569,7 @@
     </section>
     <section class="clients" id="us__client">
       <div class="container">
-        <div class="client__title" data-aos="fade-right" data-aos-duration="500">{% trans 'С КЕМ МЫ РАБОТАЕМ?' %}</div>
+        <div class="client__title" data-aos="fade-right" data-aos-duration="500">{% trans 'НАШИ ПАРТНЕРЫ' %}</div>
        <div class="client__boxs">
        <div  data-aos="fade-down-right"  data-aos-duration="700" data-aos-easing="ease-in-sine">
         <div class="client__box card1">
@@ -646,20 +712,23 @@
       <div class="cause__title"  data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-sine"> <span class="color">{% trans 'ПРИЧИН' %} </span>{% trans 'ДОВЕРИТЬ СВОЮ КОМПАНИЮ НАМ' %}</div>
      <div class="main__cause">
       <div class="container cause__container">
+        <div class="cause__title_subtitle"  data-aos="fade-left" data-aos-duration="500" data-aos-easing="ease-in-sine">
+          {% trans 'Наши фундаментальных ценностей – обеспечение преимуществ для клиентов, единая международная сеть, уважение личности, лучшие сотрудники, честность и эффективное управление - определяют культуру и определяют характер BEST AUDIT. В соответствии с этими принципами мы действуем и принимаем решения.' %} 
+        </div>
         <div class="cause__content">
           <div class="cause__text">
            <div class="ct__one">
-            {% trans 'Мы комплексно походим к работе с клиентом, предлагая широкий спектр услуг, помогающих Вам сэкономить время для эффективного развития бизнеса.' %}
+            {% trans ' Обеспечение преимуществ для клиентов – содействовать клиентам в построении высокоэффективного бизнеса, формировать долгосрочные отношения, быть чуткими и внимательными к их потребностям, обеспечивать неизменно высокий результат. ' %}
            </div>
            <div class="ct__two ct__one">
-            {% trans 'Мы поддерживаем качество наших услуг на должном высоком уровне, что обеспечивается постоянным совершенствованием наших сотрудников.' %}
+            {% trans 'Единая международная сеть – использовать все преимущества глобальной информации, связей, сотрудничества и знаний для оказания услуг исключительного качества клиентам независимо от географического расположения их бизнеса.' %}
            </div>
            <div class="ct__one">
-            {% trans 'Мы бережно относимся к благосостоянию наших клиентов, не заставляя их платить за услуги, которые не принесут им желаемого результата,' %}
+            {% trans ' Честность – быть честным и неподкупным, внушать доверие, говоря, что думаешь, делать так, чтобы слова не расходились с делами, нести ответственность за свои действия. ' %}
            </div>
             </div>
           <div class="cause__img">
-            <img class="ci__man"  src="{% static 'images/image-cause.png' %}" alt="cause__img">
+            <img class="ci__man"  src="{% static 'images/image-cause1.png' %}" alt="cause__img">
           </div>
         </div>
       </div>
@@ -667,7 +736,7 @@
     </section>
     <section class="geoposition" id="uc__position">
       <div class="container">
-        <div class="pos__title" ><div data-aos="fade-left"  data-aos-duration="300"  data-aos-easing="linear">{% trans 'Свяжитесь с нами мы будем рады вас принимать на' %} <span class="kofe">{% trans 'кофе' %}</span></div></div>
+        <div class="pos__title" ><div data-aos="fade-left"  data-aos-duration="300"  data-aos-easing="linear">{% trans 'Свяжитесь с нами будем рады вам помочь!' %}</div></div>
         <div class="position__box">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5996.368069530804!2d69.209511!3d41.283099!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x273f277784d40863!2zNDHCsDE2JzU5LjIiTiA2OcKwMTInMzQuMiJF!5e0!3m2!1sru!2s!4v1637232836206!5m2!1sru!2s" width="100%" height="100%" style="border:0;border-radius: 30px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
@@ -676,19 +745,19 @@
     <footer class="footer" id="site__footer">
      <div class="container footer__container">
       <div class="f__left">
-        <img src="{% static 'images/logo-3.png' %}" alt="logo" class="footer__logo">
+        <img src="{% static 'images/logo3.png' %}" alt="logo" class="footer__logo">
        
       </div>
       <div class="footer__adress">
         <a href="tel:+998946092277" class="flink__text"><img src="{% static 'images/femail-1.svg' %}" class="fsc__img" alt="rasm"><div>+998 94 609 22 77</div></a>
-        <a href="#" class="flink__text"><img src="{% static 'images/fphone-1.svg' %}" class="fsc__img" alt="rasm"><div>bestaudit &commat; gmail.com</div></a>
+        <a href="#" class="flink__text"><img src="{% static 'images/fphone-1.svg' %}" class="fsc__img" alt="rasm"><div>info&commat;bestaudit.com</div></a>
         <a href="#uc__position" class="flink__text"><img class="fsc__img" src="{% static 'images/footer-location-1.svg' %}" alt="rasm"><div>{% trans 'Ташкент г. Чиланзарский р. Улица ... дом 11/11' %}</div></a>
       </div>
       <div class="f__menues">
           <a href="#superiority" class="f__menu">{% trans 'Услуги' %}</a>
           <a href="#us__cost" class="f__menu">{% trans 'Тарифы' %}</a>
-          <a href="#us__client" class="f__menu">{% trans 'С кем мы работаем' %}</a>
-          <a href="#comments__uc" class="f__menu">{% trans 'Доверия' %}</a>
+          <a href="#us__client" class="f__menu">{% trans 'наши партнеры' %}</a>
+          <a href="#comments__uc" class="f__menu">{% trans 'о нас' %}</a>
           <a href="#uc__position" class="f__menu">{% trans 'Контакты' %}</a>
       </div>
         <div class="f__linkd">
@@ -698,7 +767,7 @@
             <div class="d_end__title">{% trans 'Наши социальные сети' %}</div>
            <div class="us__social">
             <a href="#"   class="flink__social">
-              <img src="{% static 'images/intagram-1.svg' %}" class="fsc__img" alt="rasm">
+              <img src="{% static 'images/instagram.svg' %}" class="fsc__img" alt="rasm">
             </a>
             <a href="#" class="flink__social">
               <img src="{% static 'images/telegram-1.svg' %}" class="fsc__img" alt="rasm">
