@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('..\..\public\fonts\Gilroy\Gilroy-ExtraBold.woff2') format('woff2'),
+    src: url('..\..\public\fonts\Gilroy\Gilroy-ExtraBold.woff2') format('woff2');
     src: url('..\..\public\fonts\Gilroy\Gilroy-ExtraBold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
